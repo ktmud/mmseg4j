@@ -85,12 +85,14 @@
 	</target>
 	<target name="jar-with-dic" depends="build.java">
 		<copy file="data/words.dic" todir="${build.java.dir}/data" preservelastmodified="true" />
+		<copy file="data/words-sougou-law.dic" todir="${build.java.dir}/data" preservelastmodified="true" />
 		<jar destfile="${build.dir}/${project.name}-all-${version}-with-dic.jar" basedir="${build.java.dir}" >
 			<manifest>
 				<attribute name="Main-Class" value="com.chenlb.mmseg4j.example.Complex"/>
 			</manifest>
 		</jar>
 		<delete file="${build.java.dir}/data/words.dic" />
+		<delete file="${build.java.dir}/data/words-sogou-law.dic" />
 	</target>
 	<target name="jar.core" depends="build.java">
 		<jar destfile="${build.dir}/${project.name}-core-${version}.jar" basedir="${build.java.dir}" >
